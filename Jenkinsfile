@@ -22,6 +22,8 @@ pipeline {
 
             stage('build docker image'){
                 steps{
+                    sh 'docker login --username=pankajsoni166 --password=me@7743968256'
+                    sh 'cd ..'
                     sh 'docker build -t pramatikart .'
                 }
             }
