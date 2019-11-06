@@ -1,4 +1,8 @@
 pipeline {
+    environment {
+	    registry = "pankajsoni166/pramatikart_test"
+	    registryCredential = 'dockerhub'
+	}
     agent any
         stages {
             stage('Initiate') {
@@ -22,11 +26,9 @@ pipeline {
 
             stage('build docker image'){
                 steps{
-                    sh 'pwd'
-                    sh 'docker login --username=pankajsoni166 --password=me@7743968256'
-                    sh 'cd ..'
-                    sh 'pwd'
-                    sh 'docker build -t pramatikart .'
+                    script {
+          				docker.build registry + ":$BUILD_NUMBER"
+        			}
                 }
             }
         }
