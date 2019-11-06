@@ -22,8 +22,9 @@ pipeline {
 
             stage('build docker image'){
                 steps{
-                    sh 'docker login --usename=pankajsoni166 --password=me@7743968256'
-                    sh 'docker build -t pramatikart .r'
+                    script{
+                        docker.build registry + ":$BUILD_NUMBER"
+                    }
                 }
             }
         }
