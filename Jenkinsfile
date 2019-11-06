@@ -22,15 +22,8 @@ pipeline {
 
             stage('build docker image'){
                 steps{
-                    docker login --usename=pankajsoni166 --password=me@7743968256
-                    docker build -t pramatikart .r
-                }
-            }
-
-            stage('push docker image to docker hub'){
-                steps{
-                    docker tag pramatikart pankajsoni166/pramatikart_test
-                    docker push pankajsoni166/pramatikart_test
+                    sh 'docker login --usename=pankajsoni166 --password=me@7743968256'
+                    sh 'docker build -t pramatikart .r'
                 }
             }
         }
