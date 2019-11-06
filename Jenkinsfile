@@ -10,13 +10,13 @@ pipeline {
 
             stage('maven install'){
                 steps{
-                    mvn clean install
+                    sh 'mvn clean install'
                 }
             }
 
             stage('run test'){
                 steps{
-                    mvn test
+                    sh 'mvn test'
                 }
             }
 
