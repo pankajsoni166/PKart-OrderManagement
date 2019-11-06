@@ -22,10 +22,8 @@ pipeline {
 
             stage('build docker image'){
                 steps{
-                    script{
-                        docker build -t pramatikart .
-                    }
+                    sh 'docker build -t pramatikart .'
                 }
             }
-        
+        }
 }
